@@ -1,0 +1,11 @@
+html {
+  background-image: url('./image/background.png');
+  background-position: center center;
+  background-repeat: repeat-x;
+  background-size: auto;
+  height:100%;
+}
+#plane{
+  top:20;
+  left:20;
+}
