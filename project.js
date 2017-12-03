@@ -1,18 +1,31 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-var key=event.which
- function planeMove(event){
-//move right on keypress
-  if(key=="39"){
-    document.getElementById('plane').style[left]=eval(document.getElementById('plane').style[left].value+10);
-  }
-  if(key="38"){
-    document.getElementById('plane').style[top]=eval(document.getElementById('plane').style[top].value+10);
-  }
-  if(key="40"){
-    document.getElementById('plane').style[top]=eval(document.getElementById('plane').style[top].value-10);
-  }
-};
-document.getElementById("plane").addEventListener('keyDown', planeMove());
+var distance=4;
+var dx= Math.random()*600;
+var dy= Math.random()*600;
+var x=0;
+var y=0;
 
-});
+plane=document.getElementById("plane")
+
+window.requestAnimFrame=(function(){
+ return window.requestAnimationFrame||
+        window.webkitRequestAnimationFrame||
+        window.mozRequestAnimationFrame||
+        window.oRequestAnimationFrame||
+        window.msRequestAnimationFrame||
+        function(/*function*/ callback, /*DOMelement*/ element){
+          window.setTimeout(callback,1000/60);
+        };
+      })
+
+ function planeMove(){
+   x+= (dx-x) * 0.15;
+   y+= (dy-y) * 0.15;
+   plane.style.left=x+"px";
+   plane.style.top=y+"px";
+   requestAnimFrame(planeMove, plane);
+}
+
+planeMove();
+})
