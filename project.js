@@ -1,31 +1,56 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-var distance=4;
-var dx= Math.random()*600;
-var dy= Math.random()*600;
-var x=0;
-var y=0;
+//set position to zero
+var leftPos=0;
+var topPos=0;
 
-plane=document.getElementById("plane")
+//attach plane img to plane var
+var plane=document.getElementById("plane")
 
-window.requestAnimFrame=(function(){
- return window.requestAnimationFrame||
-        window.webkitRequestAnimationFrame||
-        window.mozRequestAnimationFrame||
-        window.oRequestAnimationFrame||
-        window.msRequestAnimationFrame||
-        function(/*function*/ callback, /*DOMelement*/ element){
-          window.setTimeout(callback,1000/60);
-        };
-      })
-
+//plane move forward function
  function planeMove(){
-   x+= (dx-x) * 0.15;
-   y+= (dy-y) * 0.15;
-   plane.style.left=x+"px";
-   plane.style.top=y+"px";
-   requestAnimFrame(planeMove, plane);
+   leftPos+=5;
+   plane.style.left=leftPos+"px";
+   requestAnimationFrame(planeMove, plane);
+   }
+  function screenScroll(){
+    leftPos+=5;
+    window.scrollLeft(leftPos);
+  }
+//plane up function
+function planeUp(){
+  topPos+=5;
+  plane.style.top=topPos+"px";
+  requestAnimationFrame(planeMove, plane);
 }
 
+function planeDown(){
+  topPos+=-5;
+  plane.style.top=topPos+"px";
+  requestAnimationFrame(planeMove, plane);
+}
+
+//keydown function
+document.onKeydown = function checkKey(e){
+  e=e || window.event;
+  if(e.keycode===38){
+    planeUp();
+  }
+  else if (e.keycode===40){
+    planeDown();
+  }
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+        case 38:
+            planeUp();
+            break;
+        case 40:
+            planeDown();
+            break;
+    }
+};
+//call plane move
 planeMove();
 })
