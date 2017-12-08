@@ -12,6 +12,7 @@ body{
 
 #fuel{
   position: relative;
+  visibility: visible;
 }
 
 #plane{
@@ -37,9 +38,59 @@ body{
   background-color: Black;
 }
 
+#title{
+  display:block;
+  visibility: visible;
+  font-style: oblique;
+  font-size: large;
+  text-align: center;
+  font-weight: bold;
+  position: absolute;
+  align-content: center;
+  left: 49%;
+  top:10%;
+}
+
 #explotion{
   left:5000px;
   top:440px;
   position: absolute;
   visibility: hidden;
+}
+
+#rescued{
+  left:0;
+  top:0;
+  position: absolute;
+  visibility: hidden;
+}
+
+#congrats{
+  border-color: lightblue;
+  color:white;
+  left:0;
+  top:10%;
+  position: absolute;
+  visibility: hidden;
+  width:200px;
+  text-align: center;
+  padding:10px;
+  border:4px;
+  border-radius: 10px;
+  background-color: Black;
+}
+
+#failure{
+  left:5000px;
+  border-color: lightblue;
+  color:white;
+  top:10%;
+  position: absolute;
+  visibility: hidden;
+  width:200px;
+  text-align: center;
+  padding:10px;
+  border:4px;
+  border-radius: 10px;
+  background-color: Black;
 }

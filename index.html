@@ -4,21 +4,33 @@
   <link rel="stylesheet" type="text/css" href="project.css">
 </head>
 <body >
-<div id="fuel">
-  <h5>Plane Fuel Remaining</h5>
-  <p id="fuelRemaining"></p>
-  <p>
-    /5000
-  </p>
-</div>
-<img src="./image/plane.png" id="plane"/>
-<div id="startConsole">
-  <p>
-    LAND THE PLANE BEFORE THE FUEL RUNS OUT!
-  </p>
-  <button onclick="start()"> start </button>
-</div>
-<img src="./image/explotion.png" id="explotion" />
-<script type="text/javascript" src="project.js"></script>
+  <div id="title">
+    <h1>Land That Plane!</h1>
+  </div>
+  <div id="fuel">
+    <h5>Plane Fuel Remaining</h5>
+    <p id="fuelRemaining"></p>
+    <p>
+      /5000
+    </p>
+  </div>
+  <img src="./image/plane.png" id="plane"/>
+  <div id="startConsole">
+    <p>
+      LAND THE PLANE BEFORE THE FUEL RUNS OUT!
+    </p>
+    <button onclick="start()"> start </button>
+  </div>
+  <img src="./image/explotion.png" id="explotion" />
+  <img src="./image/planeRescued.png" id="rescued"  />
+  <div id="congrats">
+    <h1>Woohoo! You saved the Plane!</h1>
+    <button onclick="window.location.reload()"> Play Again </button>
+  </div>
+  <div id="failure">
+    <h2 >OH NO! You ran Out of fuel and crashed!</h2>
+    <button onclick="window.location.reload()"> Play Again </button>
+  </div>
+  <script type="text/javascript" src="project.js"></script>
 </body>
 </html>

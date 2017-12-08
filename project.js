@@ -3,7 +3,15 @@ function start(){
   var startConsole=document.getElementById("startConsole")
   startConsole.style.display='none';
   startConsole.style.visibility='hidden';
+  title.style.display='none';
+  title.style.visibility='hidden';
 
+//page Scroll
+function pageScroll(){
+   window.scrollBy(3,0);
+   scrolldelay = setTimeout(pageScroll,10);}
+
+   var stop=false;
 
 //set position to zero
   var leftPos=0;
@@ -17,66 +25,62 @@ function start(){
 //create variables for fuel
   var fuelDiv=document.getElementById("fuel");
   var fuelGuage=document.getElementById("fuelRemaining");
-
+// get extra images
+  var explotion=document.getElementById("explotion");
+  var rescued=document.getElementById("rescued");
+  var congrats=document.getElementById('congrats');
+  var failure=document.getElementById('failure');
 
 //plane move forward function
 
-function fullAnimation(){
  function planeMove(){
-
-   leftPos+=4;
+   leftPos+=5;
    plane.style.left=leftPos+"px";
    fuelDiv.style.left=leftPos+"px";
    if (leftPos==maxScroll){
-
      plane.style.visibility='hidden';
      explotion.style.visibility='visible';
-     $('plane').stop();
+     failure.style.visibility="visible";
+     fuelDiv.style.visibility="hidden";
+     stop=true;
+     cancelAnimationFrame(planeMove)
      return;
-
-     //window.alert("You ran out of fuel :(");
-
-   }
- }
-
-  planeMove();
-   requestAnimationFrame(fullAnimation, plane);
+     }
    var fuel = 0;
-   if (leftPos<5000){fuel=5000-leftPos}
+   if (leftPos<=5000){fuel=5000-leftPos}
    else {fuel=0}
    fuelGuage.innerHTML=fuel;
-}
 
+   if (topPos>=minHeight){
+      rescued.style.top=topPos+"px";
+      rescued.style.left=plane.style.left;
+      rescued.style.visibility="visible";
+      plane.style.visibility="hidden";
+      fuelDiv.style.visibility="hidden";
+      congrats.style.visibility="visible";
+      congrats.style.left=plane.style.left;
+      stop=true;
+      cancelAnimationFrame(planeMove);
+      return;
+   }
 
-
+   requestAnimationFrame(planeMove,plane);
 
 
 //plane up function
 function planeDown(){
   topPos+=5;
   plane.style.top=topPos+"px";
-  if (topPos<=minHeight){
-    return;
    }
-  requestAnimationFrame(planeUp, plane);
-}
+
 
 function planeUp(){
   topPos-=5;
   plane.style.top=topPos+"px";
-  if (topPos>=maxheight){
-    window.alert("You safely Landed the Plane!");
+  if (topPos<=maxHeight){
     return;
    }
-  requestAnimationFrame(planeUp, plane);
 }
-
-
-//call plane move
-fullAnimation();
-
-
-
 
 //keydown function
 document.onkeydown = function(e) {
@@ -90,6 +94,17 @@ document.onkeydown = function(e) {
           }
     };
   };
+
+
+
+
+
+
+
+  //call plane move
+  planeMove();
+}
+
 //});
 
 
