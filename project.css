@@ -4,9 +4,42 @@ html {
   background-repeat: repeat-x;
   background-size: auto;
   height:100%;
+  max-width: 5000px;
 }
+body{
+  max-width: 5000px;
+}
+
+#fuel{
+  position: relative;
+}
+
 #plane{
   position: absolute;
-  left:;
-  top:;
+  left:0;
+  top:0;
+  visibility: visible;
+}
+#startConsole{
+  border-color: lightblue;
+  color:white;
+  display:block;
+  visibility: visible;
+  align-content: center;
+  width:200px;
+  position: absolute;
+  top:30%;
+  left: 50%;
+  text-align: center;
+  padding:10px;
+  border:4px;
+  border-radius: 10px;
+  background-color: Black;
+}
+
+#explotion{
+  left:5000px;
+  top:440px;
+  position: absolute;
+  visibility: hidden;
 }
