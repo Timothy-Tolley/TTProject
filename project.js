@@ -8,17 +8,14 @@ function start(){
 
 //page Scroll
 function pageScroll(){
-   window.scrollBy(3,0);
-   scrolldelay = setTimeout(pageScroll,10);}
-
-   var stop=false;
-
+   window.scrollBy(4,0);
+ }
 //set position to zero
   var leftPos=0;
   var topPos=0;
   var maxScroll=5000;
   var maxHeight=-300;
-  var minHeight=550;
+  var minHeight=((window.innerHeight)*0.6);
 
 //attach plane img to plane var
   var plane=document.getElementById("plane");
@@ -50,6 +47,8 @@ function pageScroll(){
    if (leftPos<=5000){fuel=5000-leftPos}
    else {fuel=0}
    fuelGuage.innerHTML=fuel;
+
+   pageScroll();
 
    if (topPos>=minHeight){
       rescued.style.top=topPos+"px";
