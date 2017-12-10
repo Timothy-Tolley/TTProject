@@ -94,12 +94,6 @@ document.onkeydown = function(e) {
     };
   };
 
-
-
-
-
-
-
   //call plane move
   planeMove();
 }
