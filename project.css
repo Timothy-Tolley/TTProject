@@ -11,8 +11,9 @@ body{
 }
 
 #fuel{
-  position: relative;
+  position: absolute;
   visibility: visible;
+  top:30%;
 }
 
 #plane{
